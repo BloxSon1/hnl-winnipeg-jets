@@ -1,4 +1,4 @@
-# 🏒 Winnipeg Jets Hub  
+# 🏒 HNL Winnipeg Jets Hub  
 A clean, modern, Jets‑themed hockey website built with HTML, CSS, and JavaScript.  
 This project includes roster information, news, schedules, results, trades, and player statistics — all styled to match a professional NHL‑style layout.
 
