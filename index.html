@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winnipeg Jets Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue-deep: #021226;
+  --blue-mid: #041E42;
+  --blue-brand: #004C97;
+  --blue-bright: #0066CC;
+  --red: #C8102E;
+  --silver: #A2AAAD;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--blue-deep);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 10%, rgba(0,76,151,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 90%, rgba(200,16,46,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(4,30,66,0.5) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ── BIG WATERMARK LETTERS ── */
+body::after {
+  content: 'WPG';
+  position: fixed;
+  bottom: -60px;
+  right: -30px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 22vw;
+  color: rgba(0,76,151,0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -4px;
+}
+
+/* ── MAIN WRAPPER ── */
+.wrapper {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 24px;
+}
+
+/* ── LOGO MARK ── */
+.logo-mark {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--blue-brand), var(--blue-bright));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: -1px;
+  border: 2px solid rgba(255,255,255,0.12);
+  box-shadow: 0 0 40px rgba(0,76,151,0.5), 0 0 80px rgba(0,76,151,0.2);
+  margin-bottom: 20px;
+  animation: logoIn 0.6s ease both;
+}
+
+@keyframes logoIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── TITLE ── */
+.title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 3.2rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+.title span {
+  display: block;
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 8px;
+  color: var(--silver);
+  opacity: 0.75;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--blue-brand));
+  border-radius: 2px;
+  margin: 24px 0 28px;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+
+/* ── NAV GRID ── */
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  animation: fadeUp 0.5s 0.3s ease both;
+}
+
+.nav-btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 18px 12px;
+  background: rgba(10, 26, 51, 0.85);
+  border: 1px solid rgba(0, 76, 151, 0.3);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--blue-brand), var(--blue-bright));
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.nav-btn:hover::before { opacity: 1; }
+
+.nav-btn:hover {
+  color: white;
+  border-color: var(--blue-brand);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,76,151,0.4);
+}
+
+.nav-btn .icon {
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.nav-btn .label {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── SEASON BADGE ── */
+.season-badge {
+  margin-top: 28px;
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--silver);
+  opacity: 0.45;
+  animation: fadeUp 0.5s 0.45s ease both;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="logo-mark">WPG</div>
+
+  <div class="title">
+    Winnipeg Jets
+    <span>Team Hub</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="nav-grid">
+    <a class="nav-btn" href="jets-hub.html">
+      <span class="icon">👥</span>
+      <span class="label">Roster</span>
+    </a>
+    <a class="nav-btn" href="jets-hub.html">
+      <span class="icon">📰</span>
+      <span class="label">News</span>
+    </a>
+    <a class="nav-btn" href="jets-hub.html">
+      <span class="icon">📅</span>
+      <span class="label">Schedule</span>
+    </a>
+    <a class="nav-btn" href="jets-hub.html">
+      <span class="icon">🏒</span>
+      <span class="label">Results</span>
+    </a>
+    <a class="nav-btn" href="jets-hub.html">
+      <span class="icon">🔄</span>
+      <span class="label">Trades</span>
+    </a>
+    <a class="nav-btn" href="jets-hub.html">
+      <span class="icon">📊</span>
+      <span class="label">Stats</span>
+    </a>
+  </div>
+
+  <div class="season-badge">Season 47 · Winnipeg Jets</div>
+</div>
+
+</body>
+</html>
